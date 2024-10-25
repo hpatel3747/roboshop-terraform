@@ -34,7 +34,7 @@ key 1 is to unlock the vault
 
 download the key file and save it on lcoal hard drive
 
-add ke in unseal key step
+add key in unseal key step
 
 use root token method to login
 ```
