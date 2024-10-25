@@ -1,5 +1,5 @@
 env         = "dev"
-domain_name = "rdevopsb81.online"
+domain_name = "hptldevops.online"
 zone_id     = "Z02249652EM5BAO495DZ1"
 
 db_instances = {
