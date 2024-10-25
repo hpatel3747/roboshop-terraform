@@ -1,6 +1,6 @@
 env         = "dev"
 domain_name = "hptldevops.online"
-zone_id     = "Z02249652EM5BAO495DZ1"
+zone_id     = "Z034492616CL1VL5T8KC8"
 
 db_instances = {
   mongodb = {
