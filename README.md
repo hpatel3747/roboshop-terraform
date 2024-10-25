@@ -19,14 +19,14 @@ systemctl start vault
 # check listening port/ip 
 netstat -lntp
 ```
-#### access vault
+### access vault
 ```text
 https://public_ip:8200
 
 keys shares: 1 (depends how many  people )
 key threshold: 1
 
-then initiallize
+then initialize
 
 root token is like root password
 
