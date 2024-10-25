@@ -38,5 +38,8 @@ add key in unseal key step
 
 use root token method to login
 ```
-
+#### to run ansible playbook calling password from hashicorp vault
+```text
+git pull ; ansible-playbook 10-hashicorp-vault.yml -e vault_token=hvs.FmYLXxcwuiS8M7eMn01QH3si
+``````
 
