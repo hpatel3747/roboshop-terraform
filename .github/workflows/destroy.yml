@@ -9,3 +9,5 @@ jobs:
           make dev-destroy token="$env:vault_token"
         env:
           vault_token: ${{ secrets.vault_token }}
+
+
