@@ -42,5 +42,8 @@ use root token method to login
 ```text
 git pull ; ansible-playbook 10-hashicorp-vault.yml -e vault_token= {{ token }}
 ```
-
+#### to deploy dev
+```text
+make dev-apply
+```
 
