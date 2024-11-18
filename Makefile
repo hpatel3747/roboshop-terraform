@@ -6,7 +6,7 @@ default:
 dev-apply:
 	rm -rf .terraform
 	terraform init -backend-config=env-dev/state.tfvars
-	terraform apply -auto-approve -var-file=env-dev/main.tfvars
+	terraform apply -auto-approve -var-file=env-dev/main.tfvars -var vault_token=$(vault_token)
 
 dev-destroy:
 	rm -rf .terraform
