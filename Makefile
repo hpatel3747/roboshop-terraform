@@ -11,7 +11,7 @@ dev-apply:
 dev-destroy:
 	rm -rf .terraform
 	terraform init -backend-config=env-dev/state.tfvars
-	terraform destroy -auto-approve -var-file=env-dev/main.tfvars
+	terraform destroy -auto-approve -var-file=env-dev/main.tfvars -var vault_token=$(vault_token)
 
 prod:
 	rm -rf .terraform
