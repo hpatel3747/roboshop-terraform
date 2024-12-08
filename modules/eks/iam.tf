@@ -30,7 +30,8 @@ resource "aws_iam_role_policy_attachment" "main-AmazonEKSVPCResourceController" 
 
 resource "aws_iam_role" "eks-node-group-role" {
   name = "${var.env}-eks-node-group-role"
-
+# Terraform's "jsonencode" function converts a
+# Terraform expression result to valid JSON syntax.
   assume_role_policy = jsonencode({
     Statement = [{
       Action = "sts:AssumeRole"
