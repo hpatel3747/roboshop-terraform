@@ -66,7 +66,7 @@ web_instances = {
   frontend = {
     app_port      = 80
     instance_type = "t3.small"
-    volume_size   = "30"
+    volume_size   = "20"
   }
 }
 
