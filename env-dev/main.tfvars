@@ -80,7 +80,7 @@ eks = {
 
   access_entries = {
   workstation = {
-    principal_arn     = "arn:aws:iam::897722697588:role/workstation-role"
+    principal_arn     = "arn:aws:iam::585768147521:role/WorkstationRole"
     kubernetes_groups = []
     policy_arn        = "arn:aws:eks::aws:cluster-access-policy/AmazonEKSClusterAdminPolicy"
     access_scope_type = "cluster"
@@ -88,7 +88,7 @@ eks = {
   }
     # UI Access
     ui-access = {
-      principal_arn = "arn:aws:iam::897722697588:role/aws-reserved/sso.amazonaws.com/AWSReservedSSO_DevOpsEngineers_70a51c5bd23375d3"
+      principal_arn = "arn:aws:iam::585768147521:root"
       kubernetes_groups = []
       policy_arn = "arn:aws:eks::aws:cluster-access-policy/AmazonEKSClusterAdminPolicy"
       access_scope_type = "cluster"
