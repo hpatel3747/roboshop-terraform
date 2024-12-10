@@ -11,7 +11,7 @@ resource "aws_eks_cluster" "main" {
     bootstrap_cluster_creator_admin_permissions = true
   }
 }
-
+#grant IAM users access to kubernetes with EKS access entries
 resource "aws_eks_access_entry" "main" {
   for_each          = var.access_entries
   cluster_name      = aws_eks_cluster.main.name
