@@ -11,7 +11,7 @@ EOF
   }
 }
 
-## install nginx-ingress chart from the open container initiative  repository oci://ghcr.io/nginxinc/charts/nginx-ingress
+## install nginx-ingress chart from the open container initiative  repository (OCI) oci://ghcr.io/nginxinc/charts/nginx-ingress
 ## in the devops namespace, use the value file from path /helm-config/nginx-ingress.yml
 ##
 ##
@@ -64,4 +64,56 @@ resource "helm_release" "argocd" {
   values = [
     file("${path.module}/helm-config/argocd.yml")
   ]
+}
+
+##Prometheus Stack Setup
+
+##
+
+## External Secrets
+## Install helm chart "external-secrets" from repo https://charts.external-secrets.io
+## in the namespace devops
+## connect to connect to external secret using provisioner using token provided,
+## create ClusterSecretStore named: vault-backend
+resource "helm_release" "external-secrets" {
+  depends_on = [null_resource.kube-bootstrap]
+
+  name             = "external-secrets"
+  repository       = "https://charts.external-secrets.io"
+  chart            = "external-secrets"
+  namespace        = "devops"
+  create_namespace = true
+  wait             = true
+}
+
+resource "null_resource" "external-secret" {
+  depends_on = [helm_release.external-secrets]
+
+  provisioner "local-exec" {
+    command = <<EOF
+kubectl apply -f - <<EOK
+apiVersion: v1
+kind: Secret
+metadata:
+  name: vault-token
+data:
+  token: aHZzLm85R1NRbnpXNFNMTmhZSWE4aVllWlNuVQ==
+---
+apiVersion: external-secrets.io/v1beta1
+kind: ClusterSecretStore
+metadata:
+  name: vault-backend
+spec:
+  provider:
+    vault:
+      server: "http://vault-internal.hptldevops.online:8200"
+      path: "roboshop-${var.env}"
+      version: "v2"
+      auth:
+        tokenSecretRef:
+          name: "vault-token"
+          key: "token"
+EOK
+EOF
+  }
 }
