@@ -1,4 +1,4 @@
-## create kube-bootstrap will first make sure eks-dev clsuter and node group are created,
+## create kube-bootstrap will first make sure eks-dev cluster and node group are created,
 ## then update-kubeconfig to eks-dev cluster to be able to connect to the cluster, then create a NameSpace devops
 
 resource "null_resource" "kube-bootstrap" {
