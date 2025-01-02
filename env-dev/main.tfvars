@@ -8,24 +8,23 @@ db_instances = {
     instance_type = "t3.small"
     volume_size   = "20"
   }
+#  redis = {
+#    app_port      = 6379
+#    instance_type = "t3.small"
+#    volume_size   = 20
+#  }
 
-  redis = {
-    app_port      = 6379
-    instance_type = "t3.small"
-    volume_size   = "20"
-  }
+#  rabbitmq = {
+#    app_port      = 5672
+#    instance_type = "t3.small"
+#    volume_size   = 20
+#  }
 
-  rabbitmq = {
-    app_port      = 5672
-    instance_type = "t3.small"
-    volume_size   = "20"
-  }
-
-  mysql = {
-    app_port      = 3306
-    instance_type = "t3.small"
-    volume_size   = "20"
-  }
+#  mysql = {
+#    app_port      = 3306
+#    instance_type = "t3.small"
+#    volume_size   = 20
+#  }
 }
 
 app_instances = {
