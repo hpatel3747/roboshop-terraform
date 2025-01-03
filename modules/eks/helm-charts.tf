@@ -1,3 +1,4 @@
+##  bootstrapping is the process of creating a new kubernetes cluster from scratch and getting it up and running.
 ## create kube-bootstrap will first make sure eks-dev cluster and node group are created,
 ## then update-kubeconfig to eks-dev cluster to be able to connect to the cluster, then create a NameSpace devops
 
@@ -10,7 +11,6 @@ kubectl create ns devops
 EOF
   }
 }
-
 ## install nginx-ingress chart from the open container initiative  repository (OCI) oci://ghcr.io/nginxinc/charts/nginx-ingress
 ## in the devops namespace, use the value file from path /helm-config/nginx-ingress.yml
 ##
@@ -28,7 +28,7 @@ resource "helm_release" "nginx-ingress" {
 }
 
 ## External DNS
-## install helm chart External-DNS form the repo at https://kubernetes-sigs.githun.io/external-dns
+## install helm chart External-DNS form the repo at https://kubernetes-sigs.github.io/external-dns
 ## in the namespace devops
 resource "helm_release" "external-dns" {
   depends_on = [null_resource.kube-bootstrap, helm_release.nginx-ingress]
