@@ -1,4 +1,4 @@
-##  bootstrapping is the process of creating a new kubernetes cluster from scratch and getting it up and running.
+## bootstrapping is the process of creating a new kubernetes cluster from scratch and getting it up and running.
 ## create kube-bootstrap will first make sure eks-dev cluster and node group are created,
 ## then update-kubeconfig to eks-dev cluster to be able to connect to the cluster, then create a NameSpace devops
 
