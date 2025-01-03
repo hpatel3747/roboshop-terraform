@@ -1,4 +1,6 @@
 ## check the ssl cert value in line number 9, check in the aws lb
+## you would need to request a certificate in aws, use a DNS verification to request cert, make cname dns entries to complete the validation, which will enable the
+## cert available for NLB (visible when you create listener), note the certificate value and update in this file.
 
 controller:
   service:
