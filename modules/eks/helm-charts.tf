@@ -13,8 +13,9 @@ EOF
 }
 ## install nginx-ingress chart from the open container initiative  repository (OCI) oci://ghcr.io/nginxinc/charts/nginx-ingress
 ## in the devops namespace, use the value file from path /helm-config/nginx-ingress.yml
-##
-##
+## ingress lets you map traffic to different backends based on the rule you define via api (i.e in the yml file)
+## ingress exposes http and https routes from outside to cluster services with in cluster
+## ingress controller is required to fullfill the ingress rules, ingress controller can be a loadbalancer
 resource "helm_release" "nginx-ingress" {
   depends_on = [null_resource.kube-bootstrap]
   chart = "oci://ghcr.io/nginxinc/charts/nginx-ingress"
@@ -117,3 +118,11 @@ EOK
 EOF
   }
 }
+
+# The << operator followed by delimiter (in this case EOK) signals the start of the here document, THe delimiter can be any string, but EOF and EOK are commonly used.
+#
+# <<EOF tells the shell that you are going to enter a multiline string until the tag EOF
+# <<EOK tells the shell that you are going to enter a multiple lines of text to a command as if they were coming from a file or standard input
+# EOF - end of file, EOK - end of keyword
+# Provisioner in terraform are a set of built in functionalities that allow you to execute scripts, commands, or other configuration
+# actions on remote resources after they have been created or destroyed
