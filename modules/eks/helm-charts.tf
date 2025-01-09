@@ -120,7 +120,6 @@ EOF
 }
 
 # The << operator followed by delimiter (in this case EOK) signals the start of the here document, THe delimiter can be any string, but EOF and EOK are commonly used.
-#
 # <<EOF tells the shell that you are going to enter a multiline string until the tag EOF
 # <<EOK tells the shell that you are going to enter a multiple lines of text to a command as if they were coming from a file or standard input
 # EOF - end of file, EOK - end of keyword
